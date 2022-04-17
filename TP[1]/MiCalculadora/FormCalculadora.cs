@@ -39,9 +39,9 @@ namespace MiCalculadora
         /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
- 
+
             this.Close();
-  
+
         }
         /// <summary>
         /// Al presionar el boton, convierte a binario el resultado y alista los botones
@@ -70,7 +70,7 @@ namespace MiCalculadora
         /// <summary>
         /// Limpia todos los campos, seteandolos en vacio y 0
         /// </summary>
-        private void Limpiar() 
+        private void Limpiar()
         {
             txtNumero1.Text = string.Empty;
             txtNumero2.Text = string.Empty;
@@ -96,18 +96,18 @@ namespace MiCalculadora
         /// <param name="numero2"></param>
         /// <param name="operador"></param>
         /// <returns>El resultado de la operacion</returns>
-        private double Operar(string numero1, string numero2, string operador) 
+        private double Operar(string numero1, string numero2, string operador)
         {
             double resultado;
             char operadorChar;
-            if(!char.TryParse(operador, out operadorChar) || string.IsNullOrEmpty(operador)) 
+            if (!char.TryParse(operador, out operadorChar) || string.IsNullOrEmpty(operador))
             {
                 operadorChar = 'x';
             }
 
             Operando operando1 = new Operando(numero1);
             Operando operando2 = new Operando(numero2);
-            resultado = Calculadora.Operar(operando1 , operando2 , operadorChar);
+            resultado = Calculadora.Operar(operando1, operando2, operadorChar);
             return resultado;
         }
         /// <summary>
@@ -138,19 +138,16 @@ namespace MiCalculadora
                         cmbOperadores.Text = "+";
                         operador = "+";
                     }
-                    else 
+                    else
                     {
                         operador = cmbOperadores.SelectedItem.ToString();
                     }
 
                 }
-                    lblResultado.Text = Operar(txtNumero1.Text.Replace(".", ","), txtNumero2.Text.Replace(".", ","), cmbOperadores.Text).ToString();
-                    btnConvertirABinario.Enabled = true;
-                    btnConvertirADecimal.Enabled = false;
-            }
-            if(!string.IsNullOrEmpty(txtNumero1.Text) && !string.IsNullOrEmpty(txtNumero2.Text) && cmbOperadores.TabIndex != -1)  
-            {
+                lblResultado.Text = Operar(txtNumero1.Text.Replace(".", ","), txtNumero2.Text.Replace(".", ","), cmbOperadores.Text).ToString();
                 listOperaciones.Items.Add($"{txtNumero1.Text.Replace(".", ",")}  {cmbOperadores.Text}  {txtNumero2.Text.Replace(".", ",")} = {lblResultado.Text.Replace(".", ",")}");
+                btnConvertirABinario.Enabled = true;
+                btnConvertirADecimal.Enabled = false;
             }
         }
         /// <summary>
