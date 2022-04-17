@@ -18,8 +18,9 @@ namespace MiCalculadora
         {
             InitializeComponent();
         }
+
         /// <summary>
-        /// Carga el comboBox con los operadores
+        /// Carga el comboBox con todos los operadores
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -33,7 +34,7 @@ namespace MiCalculadora
         }
 
         /// <summary>
-        /// Al presionar el click Pregunta al usuario si esta seguro que quiere cerrar el programa, en caso de responder si, lo cierra.
+        /// Al presionar el boton "Cerrar" pregunta al usuario si esta seguro, si responde si, cierra
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -47,7 +48,7 @@ namespace MiCalculadora
             
         }
         /// <summary>
-        /// Al presionar el boton, convierte a binario el resultado y alista los botones
+        /// Convierte a binario el resultado en caso de ser posible y setea los botones para que el usuario pueda seguir operando
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -59,7 +60,7 @@ namespace MiCalculadora
             btnConvertirADecimal.Enabled = true;
         }
         /// <summary>
-        /// Al presionar el boton, convierte a decimal el resultado y alista los botones
+        /// Convierte a decimal el resultado en caso de ser posible y setea los botones para que el usuario pueda seguir operando
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -71,7 +72,7 @@ namespace MiCalculadora
             btnConvertirADecimal.Enabled = false;
         }
         /// <summary>
-        /// Limpia todos los campos, seteandolos en vacio y 0
+        /// Limpia todos los campos de la calculadora
         /// </summary>
         private void Limpiar() 
         {
@@ -82,7 +83,7 @@ namespace MiCalculadora
 
         }
         /// <summary>
-        /// al presionar el boton limpiar llama a la funcion limpiar y setea los botones para operar
+        /// Al presionar el boton click llama a la funcion limpiar, setea los botones para futuras operaciones
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -93,12 +94,12 @@ namespace MiCalculadora
             btnConvertirADecimal.Enabled = false;
         }
         /// <summary>
-        /// Recibe los operandos y el operador como parametro y llama al metodo operar
+        /// Recibe los dos operandos y el operador, llama al metodo operar de la calculadora y retorna el resultado de la operacion
         /// </summary>
         /// <param name="numero1"></param>
         /// <param name="numero2"></param>
         /// <param name="operador"></param>
-        /// <returns>El resultado de la operacion</returns>
+        /// <returns></returns>
         private double Operar(string numero1, string numero2, string operador) 
         {
             double resultado;
@@ -114,8 +115,8 @@ namespace MiCalculadora
             return resultado;
         }
         /// <summary>
-        /// Al presionar el boton operar valida que los campos a operar esten llenos y el comboBox no sea null
-        /// llama al metodo operar y muestra el lblResultado en pantalla, por ultimo carga el historial de operaciones
+        /// Al presionar el boton operar valida que los texts de numeros esten cargados y sean validos y avisa al cliente en caso de ser necesario
+        /// Al ser validos opera y carga el lbl resultado con la respuesta a la operacion, por ultima carga la listOperaciones con la ultima realizada
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
