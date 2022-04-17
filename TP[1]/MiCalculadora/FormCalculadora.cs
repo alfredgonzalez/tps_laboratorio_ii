@@ -39,12 +39,9 @@ namespace MiCalculadora
         /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("¿Seguro que quiere salir?", " " ,MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
-            {
-                this.Close();
-            }
-
-            
+ 
+            this.Close();
+  
         }
         /// <summary>
         /// Al presionar el boton, convierte a binario el resultado y alista los botones
@@ -154,6 +151,22 @@ namespace MiCalculadora
             if(!string.IsNullOrEmpty(txtNumero1.Text) && !string.IsNullOrEmpty(txtNumero2.Text) && cmbOperadores.TabIndex != -1)  
             {
                 listOperaciones.Items.Add($"{txtNumero1.Text.Replace(".", ",")}  {cmbOperadores.Text}  {txtNumero2.Text.Replace(".", ",")} = {lblResultado.Text.Replace(".", ",")}");
+            }
+        }
+        /// <summary>
+        /// Pregunta al usuario si esta seguro que desea salir del formulario, si la respuesta es si, cierra, de lo contrario continuar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult resultado = MessageBox.Show("¿Seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }
