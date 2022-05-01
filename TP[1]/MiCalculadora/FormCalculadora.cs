@@ -144,10 +144,19 @@ namespace MiCalculadora
                     }
 
                 }
-                lblResultado.Text = Operar(txtNumero1.Text.Replace(".", ","), txtNumero2.Text.Replace(".", ","), cmbOperadores.Text).ToString();
-                listOperaciones.Items.Add($"{txtNumero1.Text.Replace(".", ",")}  {cmbOperadores.Text}  {txtNumero2.Text.Replace(".", ",")} = {lblResultado.Text.Replace(".", ",")}");
-                btnConvertirABinario.Enabled = true;
-                btnConvertirADecimal.Enabled = false;
+                double.TryParse(txtNumero1.Text,out numeros);
+                double.TryParse(txtNumero2.Text, out double numero2);
+                if(Double.IsNaN(numeros) || Double.IsNaN(numero2)) 
+                {
+                    listOperaciones.Items.Add("Error al operar");
+                }
+                else 
+                {
+                    lblResultado.Text = Operar(txtNumero1.Text.Replace(".", ","), txtNumero2.Text.Replace(".", ","), cmbOperadores.Text).ToString();
+                    listOperaciones.Items.Add($"{txtNumero1.Text.Replace(".", ",")}  {cmbOperadores.Text}  {txtNumero2.Text.Replace(".", ",")} = {lblResultado.Text.Replace(".", ",")}");
+                    btnConvertirABinario.Enabled = true;
+                    btnConvertirADecimal.Enabled = false;
+                }
             }
         }
         /// <summary>
