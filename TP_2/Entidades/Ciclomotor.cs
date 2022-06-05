@@ -13,10 +13,12 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Ciclomotor son 'Chico'
+        /// Ciclomotor son 'Chico' 
         /// </summary>
         protected override ETamanio Tamanio
         {
+
+
             get
             {
                 return ETamanio.Chico;
