@@ -14,14 +14,15 @@ namespace Entidades
         private DateTime horaAlquiler;
         private DateTime horaDevolucion;
         private bool alquiler;
-        public Novela(EGenero genero, double precio, string autor, bool estadoCompra) : base(precio, autor, estadoCompra)
+        public Novela(EGenero genero, double precio, string descripcion, bool estadoCompra, bool alquiler) : base(precio, descripcion, estadoCompra)
         {
             this.genero = genero;
+            this.alquiler = alquiler;
 
         }
-        public Novela(EGenero genero, double precio, string autor, bool estadoCompra, bool alquiler) : this(EGenero.Terror, 00.00, "XXXXXX", false)
+        public Novela(EGenero genero, double precio, string descripcion, bool estadoCompra) : this(EGenero.Terror, precio, descripcion, false, false)
         {
-            this.alquiler = alquiler;
+            
         }
 
         static Novela()
@@ -45,19 +46,19 @@ namespace Entidades
             }
         }
         public bool Alquiler { get { return alquiler; } set { alquiler = value; } }
-        private void RealizarAlquiler()
+        /*private void RealizarAlquiler()
         {
             this.Alquiler = true;
             this.HoraAlquiler = DateTime.UtcNow;
 
-        }
+        }*/
         public double CargoAlquiler()
         {
             DateTime ingreso = HoraAlquiler;
             DateTime devolucion = DateTime.Now;
             TimeSpan resultado = ingreso.Subtract(devolucion);
             double resultadoDouble;
-            RealizarAlquiler();
+            //RealizarAlquiler();
 
             resultadoDouble = resultado.TotalHours;
             resultadoDouble *= Novela.ValorHoraAlquiler;
@@ -100,17 +101,6 @@ namespace Entidades
 
         }
 
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(base.ToString());
-            sb.AppendLine($"Genero:{this.Genero}");
-            sb.AppendLine($"Precio:${this.Precio}");
-            if (this.Alquiler)
-            {
-                sb.AppendLine($"Precio Alquiler:{this.CargoAlquiler()}");
-            }
-            return sb.ToString();
-        }
+
     }
 }

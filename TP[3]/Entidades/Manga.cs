@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Manga : Producto
+    public class Manga : Producto
     {
         public enum EColor { Color, BYN };
         private EColor color;
         private bool esPrimeraEdicion;
 
-        public Manga(double precio, string autor, bool estadoCompra) : this(0000, "XXXX", false, false, EColor.BYN)
+        public Manga(double precio, string descripcion, bool estadoCompra) : this(precio, descripcion, false,false, EColor.BYN)
         {
 
         }
-        public Manga(double precio, string autor, bool estadoCompra, bool esPrimeraEdicion, EColor color) : base(precio, autor, estadoCompra)
+        public Manga(double precio, string descripcion, bool estadoCompra, bool esPrimeraEdicion, EColor color) : base(precio, descripcion, estadoCompra)
         {
             this.esPrimeraEdicion = esPrimeraEdicion;
             this.color = color;
@@ -31,7 +31,19 @@ namespace Entidades
 
         public override double CalcularVenta()
         {
-            throw new NotImplementedException();
+            this.estadoCompra = true;
+            double precio = 0;
+            double aumento;
+            if (this.EsPrimeraEdicion) 
+            {
+                aumento = this.precio * 30 / 100;
+                precio = aumento + this.precio;
+            }
+            else 
+            {
+                precio = this.precio;
+            }
+            return precio;
         }
     }
 }

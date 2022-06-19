@@ -10,9 +10,13 @@ namespace Entidades
     {
         public enum ETipoComic { Oriental, Occidental };
         private ETipoComic tipoComic;
-        public Comic(double precio, string autor, bool estadoCompra, ETipoComic tipoComic) : base(precio, autor, estadoCompra)
+        public Comic(double precio, string descripcion, bool estadoCompra, ETipoComic tipoComic) : base(precio, descripcion, estadoCompra)
         {
             this.tipoComic = tipoComic;
+        }
+        public Comic(double precio, string descripcion, bool estadoCompra) :this(precio, descripcion, false, ETipoComic.Oriental) 
+        {
+
         }
 
         public ETipoComic TipoComic { get { return this.tipoComic; } }
@@ -34,14 +38,6 @@ namespace Entidades
             }
             return precio;
         }
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(base.ToString());
-            sb.AppendLine($"Tipo de comic: {this.TipoComic}");
-            sb.AppendLine($"Precio:${this.Precio}");
 
-            return sb.ToString();
-        }
     }
 }
