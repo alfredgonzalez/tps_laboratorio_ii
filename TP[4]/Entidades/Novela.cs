@@ -14,16 +14,16 @@ namespace Entidades
         private DateTime horaAlquiler;
         private DateTime horaDevolucion;
         private bool alquiler;
-        public Novela(EGenero genero, double precio, string descripcion, bool estadoCompra, bool alquiler) : base(precio, descripcion, estadoCompra)
+        public Novela(double precio, string descripcion, bool estadoCompra, bool alquiler) : base(precio, descripcion, estadoCompra)
         {
-            this.genero = genero;
             this.alquiler = alquiler;
 
         }
-        public Novela(EGenero genero, double precio, string descripcion) : this(EGenero.Terror, precio, descripcion, false, false)
+        public Novela(double precio, string descripcion) : this(precio, descripcion, false, false)
         {
             
         }
+
 
         static Novela()
         {

@@ -30,13 +30,14 @@
         {
             this.btnTicket = new System.Windows.Forms.Button();
             this.lstProductos = new System.Windows.Forms.ListBox();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTicket
             // 
             this.btnTicket.Location = new System.Drawing.Point(12, 374);
             this.btnTicket.Name = "btnTicket";
-            this.btnTicket.Size = new System.Drawing.Size(776, 64);
+            this.btnTicket.Size = new System.Drawing.Size(351, 64);
             this.btnTicket.TabIndex = 0;
             this.btnTicket.Text = "GenerarTicket";
             this.btnTicket.UseVisualStyleBackColor = true;
@@ -51,11 +52,22 @@
             this.lstProductos.Size = new System.Drawing.Size(776, 344);
             this.lstProductos.TabIndex = 1;
             // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.Location = new System.Drawing.Point(437, 374);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(351, 64);
+            this.btnAgregarProducto.TabIndex = 2;
+            this.btnAgregarProducto.Text = "Agregar Producto";
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAgregarProducto);
             this.Controls.Add(this.lstProductos);
             this.Controls.Add(this.btnTicket);
             this.Name = "frmClientes";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button btnTicket;
         private System.Windows.Forms.ListBox lstProductos;
+        private System.Windows.Forms.Button btnAgregarProducto;
     }
 }
