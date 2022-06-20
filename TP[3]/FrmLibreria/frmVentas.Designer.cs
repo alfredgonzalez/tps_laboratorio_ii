@@ -39,9 +39,9 @@
             // 
             this.listVentas.FormattingEnabled = true;
             this.listVentas.ItemHeight = 20;
-            this.listVentas.Location = new System.Drawing.Point(65, 136);
+            this.listVentas.Location = new System.Drawing.Point(11, 114);
             this.listVentas.Name = "listVentas";
-            this.listVentas.Size = new System.Drawing.Size(505, 244);
+            this.listVentas.Size = new System.Drawing.Size(777, 324);
             this.listVentas.TabIndex = 0;
             // 
             // txtNombre

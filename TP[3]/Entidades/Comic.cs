@@ -14,7 +14,7 @@ namespace Entidades
         {
             this.tipoComic = tipoComic;
         }
-        public Comic(double precio, string descripcion, bool estadoCompra) :this(precio, descripcion, false, ETipoComic.Oriental) 
+        public Comic(double precio, string descripcion) :this(precio, descripcion, false, ETipoComic.Oriental) 
         {
 
         }

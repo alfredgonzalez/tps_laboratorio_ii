@@ -19,7 +19,7 @@ namespace Entidades
             this.descripcion = descripcion;
            
         }
-        public Producto(double precio, string descripcion) :this(precio, descripcion, false)
+        public Producto(double precio, string descripcion) : this(precio, descripcion, false)
         {
             
         }
@@ -55,6 +55,7 @@ namespace Entidades
             {
                 sb.AppendLine($"Estado de la compra: No confirmada");
             }
+            sb.AppendLine($"Precio: ${this.Precio}");
             return sb.ToString();
         }
 

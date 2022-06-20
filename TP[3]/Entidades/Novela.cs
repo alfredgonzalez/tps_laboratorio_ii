@@ -20,7 +20,7 @@ namespace Entidades
             this.alquiler = alquiler;
 
         }
-        public Novela(EGenero genero, double precio, string descripcion, bool estadoCompra) : this(EGenero.Terror, precio, descripcion, false, false)
+        public Novela(EGenero genero, double precio, string descripcion) : this(EGenero.Terror, precio, descripcion, false, false)
         {
             
         }

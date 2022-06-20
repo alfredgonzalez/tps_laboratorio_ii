@@ -12,7 +12,7 @@ namespace Entidades
         private EColor color;
         private bool esPrimeraEdicion;
 
-        public Manga(double precio, string descripcion, bool estadoCompra) : this(precio, descripcion, false,false, EColor.BYN)
+        public Manga(double precio, string descripcion) : this(precio, descripcion, false,false, EColor.BYN)
         {
 
         }

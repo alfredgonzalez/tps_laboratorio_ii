@@ -77,10 +77,10 @@ namespace Entidades
         {
             return !(cliente == producto);
         }
-        public string ListarProductos(Cliente cliente) 
+        public string ListarProductos() 
         {
             StringBuilder sb = new StringBuilder();
-            foreach (Producto item in cliente.Productos)
+            foreach (Producto item in this.Productos)
             {
                 sb.AppendLine(item.ToString());
             }
@@ -93,13 +93,20 @@ namespace Entidades
                 item.EstadoCompra = true;
             }
         }
+        public string InfoCliente() 
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Nombre y apellido: {this.Nombre} {this.Apellido}\t Dni: {this.Dni}\t Celular: {this.Celular}");
+            foreach (Producto item in this.Productos)
+            {
+                sb.AppendLine($"{item.ToString()}");
+            }
+            return sb.ToString();
+        }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Nombre: {this.Nombre}");
-            sb.AppendLine($"Apellido: {this.Apellido}");
-            sb.AppendLine($"Dni: {this.Dni}");
-            sb.AppendLine($"Celular: {this.Celular}");
+            sb.AppendLine($"Nombre y apellido: {this.Nombre} {this.Apellido}\t Dni: {this.Dni}\t Celular: {this.Celular}");
 
             return sb.ToString();
         }

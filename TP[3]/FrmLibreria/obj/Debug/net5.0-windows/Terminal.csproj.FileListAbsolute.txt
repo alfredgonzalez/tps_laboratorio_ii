@@ -21,3 +21,4 @@ C:\Users\alfre\Desktop\Git\tps_laboratorio_ii\TP[3]\FrmLibreria\obj\Debug\net5.0
 C:\Users\alfre\Desktop\Git\tps_laboratorio_ii\TP[3]\FrmLibreria\obj\Debug\net5.0-windows\Terminal.genruntimeconfig.cache
 C:\Users\alfre\Desktop\Git\tps_laboratorio_ii\TP[3]\FrmLibreria\obj\Debug\net5.0-windows\ref\Terminal.dll
 C:\Users\alfre\Desktop\Git\tps_laboratorio_ii\TP[3]\FrmLibreria\obj\Debug\net5.0-windows\Terminal.frmClientes.resources
+C:\Users\alfre\Desktop\Git\tps_laboratorio_ii\TP[3]\FrmLibreria\obj\Debug\net5.0-windows\Terminal.frmAlta.resources

@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnProductos = new System.Windows.Forms.Button();
+            this.btnTicket = new System.Windows.Forms.Button();
             this.lstProductos = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // btnProductos
+            // btnTicket
             // 
-            this.btnProductos.Location = new System.Drawing.Point(142, 100);
-            this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(215, 83);
-            this.btnProductos.TabIndex = 0;
-            this.btnProductos.Text = "Productos";
-            this.btnProductos.UseVisualStyleBackColor = true;
-            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            this.btnTicket.Location = new System.Drawing.Point(12, 374);
+            this.btnTicket.Name = "btnTicket";
+            this.btnTicket.Size = new System.Drawing.Size(776, 64);
+            this.btnTicket.TabIndex = 0;
+            this.btnTicket.Text = "GenerarTicket";
+            this.btnTicket.UseVisualStyleBackColor = true;
+            this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
             // lstProductos
             // 
             this.lstProductos.FormattingEnabled = true;
             this.lstProductos.ItemHeight = 20;
-            this.lstProductos.Location = new System.Drawing.Point(482, 12);
+            this.lstProductos.Location = new System.Drawing.Point(12, 12);
             this.lstProductos.Name = "lstProductos";
-            this.lstProductos.Size = new System.Drawing.Size(306, 404);
+            this.lstProductos.Size = new System.Drawing.Size(776, 344);
             this.lstProductos.TabIndex = 1;
             // 
             // frmClientes
@@ -57,16 +57,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lstProductos);
-            this.Controls.Add(this.btnProductos);
+            this.Controls.Add(this.btnTicket);
             this.Name = "frmClientes";
             this.Text = "frmClientes";
+            this.Load += new System.EventHandler(this.frmClientes_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnProductos;
+        private System.Windows.Forms.Button btnTicket;
         private System.Windows.Forms.ListBox lstProductos;
     }
 }

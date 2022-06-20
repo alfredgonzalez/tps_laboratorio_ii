@@ -11,9 +11,10 @@ namespace Entidades
 {
     public class ArchivoTxt : GestorDeArchivos, IArchivos<string>
     {
-        protected ArchivoTxt(ETipoArchivo tipoArchivo) : base(tipoArchivo)
+        public ArchivoTxt() : base(ETipoArchivo.datosTXT)
         {
         }
+        
 
         public string Escribir(string archivo, string datos) 
         {

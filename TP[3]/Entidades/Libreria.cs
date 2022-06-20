@@ -9,22 +9,21 @@ namespace Entidades
     public class Libreria
     {
         private List<Cliente> listaClientes;
-        private List<Venta> listaVentas;
         private string dniCliente;
+
 
         public Libreria() 
         {
             listaClientes = new List<Cliente>();
-            listaVentas = new List<Venta>();
         }
-        public Libreria(string dniCliente) 
+        public Libreria(string dniCliente, Producto producto) 
         {
             this.dniCliente = dniCliente;
+            
         }
 
         public string DniCliente { get { return this.dniCliente; } set { this.dniCliente = value; } }
         public List<Cliente> ListaClientes { get { return this.listaClientes; } set { this.listaClientes = value; }  }
-        public List<Venta> ListaVentas { get { return this.listaVentas; } set { this.listaVentas = value; } }
 
         public static bool operator ==(Libreria clientes, Cliente cliente) 
         {
@@ -32,7 +31,7 @@ namespace Entidades
             {
                 foreach(Cliente c in clientes.listaClientes) 
                 {
-                    if(cliente == c)
+                    if(cliente.Dni == c.Dni)
                         return true;
                 }
             }
@@ -98,57 +97,55 @@ namespace Entidades
 
             return new Cliente();
         }
-
-        private string MostrarInfoClientes()
+        public bool VerificarClienteDuplicado(Cliente c) 
         {
-            StringBuilder datos = new StringBuilder();
-            foreach (Cliente cliente in listaClientes)
+            foreach(Cliente item in this.listaClientes) 
             {
-                cliente.ToString();
+                if(c.Dni == item.Dni) 
+                {
+                    return true;
+                }
             }
-            return datos.ToString();
+            return false;
         }
-        public override string ToString()
-        {
-            return MostrarInfoClientes();
-        }
-        public Cliente Vender(Producto p, int cantidad, Cliente c) 
+
+        
+        public Cliente Vender(Producto p, Cliente c) 
         {
             
             if (c is not null && p is not null)
             {
                 c += p;
+                p.EstadoCompra = true;
             }
             return c;
         }
-        public Venta Vender(Producto p) 
+
+        
+        public static string GenerarTicket(Cliente c) 
         {
-            Venta venta = new Venta(p);
-            if (venta is not null)
-            {
-                listaVentas.Add(venta);
-            }
-            return venta;
-        }
-        public string ListarVentas() 
-        {
+            double precioFinal=0;
             StringBuilder sb = new StringBuilder();
-            foreach(Venta item in listaVentas)
+            if(c is not null) 
             {
-                sb.AppendLine(item.ToString());
+                sb.AppendLine($"-----------------------");
+                sb.AppendLine($"CLIENTE:");
+                sb.AppendLine($"Nombre y Apellido {c.Nombre} {c.Apellido}");
+                sb.AppendLine($"Dni:{c.Dni}");
+                sb.AppendLine($"-----------------------");
+                sb.AppendLine($"PRODUCTOS:");
+                foreach (Producto p in c.Productos) 
+                {
+                    if (p.EstadoCompra) 
+                    {
+                        sb.AppendLine($"{p.ToString()}");
+                        precioFinal += p.Precio;
+                    }
+                }
+                sb.AppendLine($"-----------------------");
+                sb.AppendLine($"Precio Final: ${precioFinal}");
             }
             return sb.ToString();
-
-        }
-        public bool ValidarCliente(string nombre, string apellido, string dni, string celular) 
-        {
-            if(string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellido) 
-                || string.IsNullOrWhiteSpace(dni)|| string.IsNullOrWhiteSpace(celular))
-            {
-                throw new CamposVaciosExcepcion("Error! faltan datos de cliente");
-
-            }
-            return true;
         }
 
     }

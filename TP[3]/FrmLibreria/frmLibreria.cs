@@ -14,20 +14,22 @@ namespace Terminal
     public partial class frmLibreria : Form
     {
         private Libreria libreria;
-        private Cliente cliente2;
         public frmLibreria()
         {
             InitializeComponent();
             this.libreria = new Libreria();
-            Cliente cliente = new Cliente("11111", "Alfredo", "Gonzalez", "111111");
+            Cliente cliente = new Cliente("40142157", "Alfredo", "Gonzalez", "1165589870");
             Cliente cliente2 = new Cliente("aaaaa", "Natasha", "Rojas", "AAAAAAAAA");
-            Producto producto1 = new Comic(5000, "Kimetsu no yaiba #1", false);
-            Producto producto2 = new Novela(Novela.EGenero.Drama, 2500, "Rayuela", false);
-            Producto producto3 = new Manga(1500, "Jujutsu kaizen #1", false, true, Manga.EColor.BYN);
-            Producto producto4 = new Comic(10000, "Spiderman #1", false, Comic.ETipoComic.Oriental);
+            Producto producto1 = new Comic(5000, "Kimetsu no yaiba #1");
+            Producto producto2 = new Novela(Novela.EGenero.Drama, 2500, "Rayuela");
+            Producto producto3 = new Manga(1500, "Jujutsu kaizen #1");
+            Producto producto4 = new Comic(10000, "Spiderman #1");
 
             libreria.ListaClientes.Add(cliente);
             libreria.ListaClientes.Add(cliente2);
+            producto2.Precio = producto2.CalcularVenta();
+            producto3.Precio = producto3.CalcularVenta();
+            producto4.Precio = producto4.CalcularVenta();
             cliente += producto2;
             cliente += producto3;
             cliente += producto4;
@@ -36,52 +38,89 @@ namespace Terminal
             cliente2 += producto1;
 
         }
-        private bool ValidarCliente()
-        {
-            /*Cliente cliente = new Cliente("xxxxxx", txtNombre.Text, txtApellido.Text, "xxxxxx");
-            if(libreria.BuscarClienteEnLista(cliente)) 
-            {
-                return true;
-            }*/
-            return false;
 
-        }
         public void ActualizarLista()
         {
+            this.lstClientes.DataSource = null;
+            this.lstClientes.DataSource = libreria.ListaClientes;
 
-            this.lstClientes.Text = this.libreria.ToString();
-        }
-        private void btnVender_Click(object sender, EventArgs e)
-        {
-            frmVentas  frmVentas = new frmVentas();
-            frmVentas.Show();
         }
 
         private void frmLibreria_Load(object sender, EventArgs e)
         {
 
+            this.lstClientes.DataSource = null;
+            this.lstClientes.DataSource = libreria.ListaClientes;
+            ActualizarLista();
+        }
+
+
+
+        private bool ValidarClienteExiste()
+        {
+            int index = lstClientes.SelectedIndex;
+            if (index == -1 && lstClientes.Items.Count == 0)
+            {
+                throw new ClienteNoExisteExcepcion("Error, no hay clientes en la lista");
+            }
+            else if (index == -1)
+            {
+                throw new ClienteNoExisteExcepcion("Error, selecciona un cliente");
+            }
+            return true;
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-
-            cliente = libreria.BuscarClienteEnLista(txtDni.Text);
-            if (this.libreria != cliente)
+            try
             {
-                throw new ClienteNoExisteExcepcion("No existe ese cliente en la base de datos");
+                
+                if (ValidarClienteExiste())
+                {
+                    int index = lstClientes.SelectedIndex;
+                    Cliente cliente = (Cliente)lstClientes.SelectedItem;
+                    frmClientes frmClientes = new frmClientes(this.libreria, cliente);
+                    frmClientes.ShowDialog();
+                }
             }
-            else
+            catch (ClienteNoExisteExcepcion ex)
             {
-                this.rchListadoProductos.Text = cliente.ListarProductos(cliente);
-                this.txtNombre.Text = cliente.Nombre;
-                this.txtApellido.Text = cliente.Apellido;
-                this.txtCelular.Text = cliente.Celular;
-
+                MessageBox.Show(ex.Message,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Error");
+            }
+        }
 
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+            frmAlta frmAlta = new frmAlta(this.libreria);
+            frmAlta.ShowDialog();
+            ActualizarLista();
+        }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidarClienteExiste())
+                {
+                    int index = lstClientes.SelectedIndex;
+                    Cliente cliente = (Cliente)lstClientes.SelectedItem;
+                    string mensaje = this.libreria - cliente;
+                    this.ActualizarLista();
+                    MessageBox.Show(mensaje, "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (ClienteNoExisteExcepcion ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error en la accion");
+            }
         }
     }
-    
 }
