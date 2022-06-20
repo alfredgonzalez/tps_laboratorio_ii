@@ -68,5 +68,37 @@ namespace Entidades
             }
             return true;
         }
+        public static bool ValidarCamposVacios(string datos) 
+        {
+            if (string.IsNullOrEmpty(datos)) 
+            {
+                throw new CamposVaciosExcepcion("Error, rellene todos los campos para continuar");
+            }
+            else if (string.IsNullOrWhiteSpace(datos)) 
+            {
+                throw new CamposVaciosExcepcion("Error, rellene todos los campos sin espacios vacios");
+            }
+            return true;
+        }
+        public static bool ValidarSoloNumeros(string numeros) 
+        {
+            if (!double.TryParse(numeros, out double numerosAux)) 
+            {
+                throw new PrecioNoValidoExcepcion("Error, el precio solo puede contener numeros");
+            }
+            else if(numerosAux <=0 || numerosAux > 990000)
+            {
+                throw new PrecioNoValidoExcepcion("Error, el precio colocado no es valido");
+            }
+            return true;
+        }
+        public static bool ValidarSoloLetras(string letras) 
+        {
+            if(!Regex.IsMatch(letras, @"^[a-zA-Z]+$")) 
+            {
+                throw new SoloLetrasExcepcion("Error, el campo debe contener solo letras");
+            }
+            return true;
+        }
     }
 }

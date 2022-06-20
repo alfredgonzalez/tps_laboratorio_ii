@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\FrmLibreria\\Terminal.csproj": {}
+    "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\FrmLibreria\\Terminal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\Entidades\\Entidades.csproj",
+        "projectPath": "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\alfre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\Entidades\\obj\\",
+        "outputPath": "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,14 +58,14 @@
         }
       }
     },
-    "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\FrmLibreria\\Terminal.csproj": {
+    "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\FrmLibreria\\Terminal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\FrmLibreria\\Terminal.csproj",
+        "projectUniqueName": "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\FrmLibreria\\Terminal.csproj",
         "projectName": "Terminal",
-        "projectPath": "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\FrmLibreria\\Terminal.csproj",
+        "projectPath": "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\FrmLibreria\\Terminal.csproj",
         "packagesPath": "C:\\Users\\alfre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\FrmLibreria\\obj\\",
+        "outputPath": "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\FrmLibreria\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\alfre\\Desktop\\Git\\tps_laboratorio_ii\\TP[3]\\Entidades\\Entidades.csproj"
+              "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\alfre\\Desktop\\asd\\tps_laboratorio_ii\\TP[3]\\Entidades\\Entidades.csproj"
               }
             }
           }

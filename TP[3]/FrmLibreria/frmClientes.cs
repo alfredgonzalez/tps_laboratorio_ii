@@ -72,5 +72,13 @@ namespace Terminal
             }
             return true;
         }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = this.cliente;
+            frmProducto frmProductos = new frmProducto(this.libreria, cliente);
+            frmProductos.ShowDialog();
+            this.ActualizarLista();
+        }
     }
 }

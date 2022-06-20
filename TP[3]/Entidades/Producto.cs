@@ -55,6 +55,7 @@ namespace Entidades
             {
                 sb.AppendLine($"Estado de la compra: No confirmada");
             }
+            sb.AppendLine($"{typeof(Producto).Name}");
             sb.AppendLine($"Precio: ${this.Precio}");
             return sb.ToString();
         }

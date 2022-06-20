@@ -21,7 +21,7 @@ namespace Terminal
             Cliente cliente = new Cliente("40142157", "Alfredo", "Gonzalez", "1165589870");
             Cliente cliente2 = new Cliente("aaaaa", "Natasha", "Rojas", "AAAAAAAAA");
             Producto producto1 = new Comic(5000, "Kimetsu no yaiba #1");
-            Producto producto2 = new Novela(Novela.EGenero.Drama, 2500, "Rayuela");
+            Producto producto2 = new Novela(2500, "Rayuela");
             Producto producto3 = new Manga(1500, "Jujutsu kaizen #1");
             Producto producto4 = new Comic(10000, "Spiderman #1");
 
